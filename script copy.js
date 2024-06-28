@@ -173,4 +173,3 @@ function displayWeatherData(currentData, forecastData) {
 
     document.getElementById('weatherData').classList.remove('hidden');
 }
-
