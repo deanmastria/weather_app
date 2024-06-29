@@ -20,7 +20,7 @@ body {
 }
 
 #weatherForm input.form-control {
-    max-width: 100px;
+    max-width: 150px;
     text-align: center;
     margin-bottom: 0.5rem;
 }
@@ -37,7 +37,7 @@ body {
     }
 
     #headerwrapper h1 {
-        font-size: 2.2rem; /* Increased font size */
+        font-size: 3rem; /* Increased font size */
     }
 
     .card-body p {
@@ -51,7 +51,7 @@ body {
     #wrapper-feels-like,
     #wrapper-pressure,
     #wrapper-humidity {
-        font-size: 1.3rem; /* Increased font size */
+        font-size: 1.7rem; /* Increased font size */
     }
 
     #weatherForm input.form-control,

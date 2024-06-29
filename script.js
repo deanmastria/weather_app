@@ -4,8 +4,11 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
     getWeatherData(zipCode);
 });
 
+let isCelsius = false;
+
 async function getWeatherData(zipCode) {
     const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; // Replace with your actual API key
+    const units = isCelsius ? 'metric' : 'imperial';
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=imperial&appid=${apiKey}`;
     const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&units=imperial&appid=${apiKey}`;
 
@@ -44,15 +47,17 @@ function displayWeatherData(currentData, forecastData) {
     const tempLow = currentData.main.temp_min;
     const icon = `http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`;
 
+    const tempUnit = isCelsius ? '°C' : '°F';
+
     if (document.getElementById('currentDate')) document.getElementById('currentDate').innerText = currentDate;
     if (document.getElementById('city')) document.getElementById('city').innerText = city;
-    if (document.getElementById('temperature')) document.getElementById('temperature').innerText = temperature + '°F';
+    if (document.getElementById('temperature')) document.getElementById('temperature').innerText = `${temperature} ${tempUnit}`;
     if (document.getElementById('conditions')) document.getElementById('conditions').innerText = conditions;
     if (document.getElementById('weather-icon-now')) document.getElementById('weather-icon-now').src = icon;
     if (document.getElementById('weather-icon-conditions')) document.getElementById('weather-icon-conditions').src = icon;
-    if (document.getElementById('wrapper-temp-high')) document.getElementById('wrapper-temp-high').innerText = tempHigh + '°F';
-    if (document.getElementById('wrapper-temp-low')) document.getElementById('wrapper-temp-low').innerText = tempLow + '°F';
-    if (document.getElementById('wrapper-feels-like')) document.getElementById('wrapper-feels-like').innerText = feelsLike + '°F';
+    if (document.getElementById('wrapper-temp-high')) document.getElementById('wrapper-temp-high').innerText = `${tempHigh} ${tempUnit}`;
+    if (document.getElementById('wrapper-temp-low')) document.getElementById('wrapper-temp-low').innerText = `${tempLow} ${tempUnit}`;
+    if (document.getElementById('wrapper-feels-like')) document.getElementById('wrapper-feels-like').innerText = `${feelsLike} ${tempUnit}`;
 
     const main = currentData.weather[0].main;
     const description = currentData.weather[0].description;
@@ -61,7 +66,7 @@ function displayWeatherData(currentData, forecastData) {
     const humidity = currentData.main.humidity;
 
     if (document.getElementById("wrapper-description")) document.getElementById("wrapper-description").innerHTML = description;
-    if (document.getElementById("wrapper-temp")) document.getElementById("wrapper-temp").innerHTML = temp + "°F";
+    if (document.getElementById("wrapper-temp")) document.getElementById("wrapper-temp").innerHTML = temp + tempUnit;
     if (document.getElementById("wrapper-pressure")) document.getElementById("wrapper-pressure").innerHTML = pressure;
     if (document.getElementById("wrapper-humidity")) document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
     if (document.getElementById("wrapper-name")) document.getElementById("wrapper-name").innerHTML = city;
@@ -80,7 +85,7 @@ function displayWeatherData(currentData, forecastData) {
         forecastItem.innerHTML = `
             <strong class="d-block mb-2">${time}</strong>
             <img src="${icon}" alt="${description}" />
-            <strong class="d-block">${temp}°F</strong>
+            <strong class="d-block">${temp}${tempUnit}</strong>
         `;
         hourlyForecastContainer.appendChild(forecastItem);
     });
@@ -115,7 +120,7 @@ function displayWeatherData(currentData, forecastData) {
                 <img src="${dayIcon}" class="w-100" alt="${dayDescription}" />
             </div>
             <div class="col-lg-4 text-end">
-                <span>${dayDescription} - High: ${dayHigh}°F, Low: ${dayLow}°F</span>
+                <span>${dayDescription} - High: ${dayHigh}${tempUnit}, Low: ${dayLow}${tempUnit}</span>
             </div>
         `;
         fiveDayForecastContainer.appendChild(forecastItem);
@@ -173,4 +178,13 @@ function displayWeatherData(currentData, forecastData) {
 
     document.getElementById('weatherData').classList.remove('hidden');
 }
+
+document.getElementById('unitToggleBtn').addEventListener('click', function() {
+    isCelsius = !isCelsius;
+    const zipCode = document.getElementById('zipCode').value;
+    if (zipCode) {
+        getWeatherData(zipCode);
+    }
+    this.textContent = isCelsius ? 'Switch to °F' : 'Switch to °C';
+});
 
