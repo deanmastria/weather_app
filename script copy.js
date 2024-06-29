@@ -245,3 +245,8 @@ document.getElementById('unitToggleBtn').addEventListener('click', function() {
     this.textContent = isCelsius ? 'Switch to °F' : 'Switch to °C';
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Default to New York City
+    getCoordinates('New York', 'NY');
+});
+
