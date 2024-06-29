@@ -16,7 +16,7 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
 let isCelsius = false;
 
 async function getCoordinates(city, state) {
-    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; // Replace with your actual API key
+    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; 
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},US&limit=1&appid=${apiKey}`;
 
     try {
@@ -37,7 +37,7 @@ async function getCoordinates(city, state) {
 }
 
 async function getWeatherDataByZip(zipCode) {
-    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; // Replace with your actual API key
+    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; 
     const units = isCelsius ? 'metric' : 'imperial';
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=${units}&appid=${apiKey}`;
     const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&units=${units}&appid=${apiKey}`;
@@ -64,7 +64,7 @@ async function getWeatherDataByZip(zipCode) {
 }
 
 async function getWeatherData(lat, lon) {
-    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; // Replace with your actual API key
+    const apiKey = '2182ee4c84deb73b20b5a76e6d883b4d'; 
     const units = isCelsius ? 'metric' : 'imperial';
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
     const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
@@ -124,9 +124,9 @@ function displayWeatherData(currentData, forecastData) {
     if (document.getElementById("wrapper-humidity")) document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
     if (document.getElementById("wrapper-name")) document.getElementById("wrapper-name").innerHTML = city;
 
-    // Display hourly forecast
+    // hourly forecast
     const hourlyForecastContainer = document.getElementById('hourly-forecast');
-    hourlyForecastContainer.innerHTML = ''; // Clear previous data
+    hourlyForecastContainer.innerHTML = ''; 
     forecastData.list.slice(0, 8).forEach((forecast, index) => {
         const time = new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const temp = forecast.main.temp;
@@ -143,9 +143,9 @@ function displayWeatherData(currentData, forecastData) {
         hourlyForecastContainer.appendChild(forecastItem);
     });
 
-    // Display 5-day forecast
+    // 5-day forecast
     const fiveDayForecastContainer = document.getElementById('five-day-forecast');
-    fiveDayForecastContainer.innerHTML = ''; // Clear previous data
+    fiveDayForecastContainer.innerHTML = ''; 
     const dailyData = {};
     forecastData.list.forEach((forecast) => {
         const date = new Date(forecast.dt * 1000).toLocaleDateString();
@@ -155,7 +155,7 @@ function displayWeatherData(currentData, forecastData) {
         dailyData[date].push(forecast);
     });
 
-    Object.keys(dailyData).slice(0, 3).forEach((date) => {
+    Object.keys(dailyData).slice(1, 4).forEach((date) => {
         const dayData = dailyData[date];
         const dayTemps = dayData.map(forecast => forecast.main.temp);
         const dayHigh = Math.max(...dayTemps);
@@ -183,50 +183,60 @@ function displayWeatherData(currentData, forecastData) {
     switch (main) {
         case "Snow":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
-            break;
-        case "Clouds":
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
-            break;
-        case "Fog":
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
-            break;
-        case "Rain":
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
-            break;
-        case "Clear":
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-            break;
-        case "Thunderstorm":
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
-            break;
-        default:
-            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-            break;
-    }
-
-    switch (main) {
-        case "Snow":
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
             break;
         case "Clouds":
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
             break;
         case "Fog":
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
             break;
         case "Rain":
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
             break;
         case "Clear":
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
         case "Thunderstorm":
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
             break;
         default:
+            document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
     }
+
+    let backgroundColor;
+    switch (main) {
+        case "Snow":
+            backgroundColor = "#ffffff";
+            break;
+        case "Clouds":
+            backgroundColor = "#808080";
+            break;
+        case "Fog":
+            backgroundColor = "#D3D3D3";
+            break;
+        case "Rain":
+            backgroundColor = "#0000ff";
+            break;
+        case "Clear":
+            backgroundColor = "#87ceeb";
+            break;
+        case "Thunderstorm":
+            backgroundColor = "#1b03a3";
+            break;
+        default:
+            backgroundColor = "#58c0eb";
+            break;
+    }
+
+    document.body.style.backgroundColor = backgroundColor;
 
     document.getElementById('weatherData').classList.remove('hidden');
 }
@@ -241,6 +251,9 @@ document.getElementById('unitToggleBtn').addEventListener('click', function() {
         getWeatherDataByZip(zipCode);
     } else if (city && state) {
         getCoordinates(city, state);
+    } else {
+        // Default to New York City 
+        getCoordinates('New York', 'NY');
     }
     this.textContent = isCelsius ? 'Switch to °F' : 'Switch to °C';
 });
