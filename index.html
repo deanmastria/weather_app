@@ -9,18 +9,16 @@
 </head>
 <body>
     <header class="text-center mt-4">
-    <div id="headerwrapper" class="card text-white bg-image shadow-4-strong"
-    style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
-        <h1>Weather App</h1>
-    </div>
+        <div id="headerwrapper" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
+            <h1>Weather App</h1>
+        </div>
     </header>
     <div class="container mt-4">
         <section id="weatherData" class="mt-4">
             <div class="container py-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-md-9 col-lg-7 col-xl-5">
-                        <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong"
-                            style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
+                        <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
                             <!-- Main current data -->
                             <div class="card-body p-4">
                                 <div class="text-center mb-3">
@@ -28,89 +26,31 @@
                                     <p class="h2 mb-1" id="wrapper-name"></p>
                                     <p class="mb-1" id="wrapper-description"></p>
                                     <p class="display-1 mb-1" id="wrapper-temp"></p>
-                                    <span>High: <span id="wrapper-temp-high"></span>°F</span>
+                                    <span>High: <span id="wrapper-temp-high"></span>
                                     <span class="mx-2">|</span>
-                                    <span>Low: <span id="wrapper-temp-low"></span>°F</span>
+                                    <span>Low: <span id="wrapper-temp-low"></span>
                                     <div class="mt-2">
-                                        <span>Pressure: <span id="wrapper-pressure"></span></span>
+                                        <span>Feels Like: <span id="wrapper-feels-like"></span>
                                         <span class="mx-2">|</span>
-                                        <span>Humidity: <span id="wrapper-humidity"></span></span>
+                                        <span>Pressure: <span id="wrapper-pressure"></span>
+                                        <span class="mx-2">|</span>
+                                        <span>Humidity: <span id="wrapper-humidity"></span>
                                     </div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button id="unitToggleBtn" class="btn btn-primary">Switch to °C</button>
                                 </div>
                             </div>
 
                             <!-- Hourly forecast -->
-                            <div class="card-body mb-2">
-                                <div class="row text-center">
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2">Now</strong>
-                                        <img id="wrapper-icon-hour-now" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour-now"></strong>
-                                    </div>
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2" id="wrapper-time1"></strong>
-                                        <img id="wrapper-icon-hour1" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour1"></strong>
-                                    </div>
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2" id="wrapper-time2"></strong>
-                                        <img id="wrapper-icon-hour2" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour2"></strong>
-                                    </div>
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2" id="wrapper-time3"></strong>
-                                        <img id="wrapper-icon-hour3" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour3"></strong>
-                                    </div>
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2" id="wrapper-time4"></strong>
-                                        <img id="wrapper-icon-hour4" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour4"></strong>
-                                    </div>
-                                    <div class="col-2">
-                                        <strong class="d-block mb-2" id="wrapper-time5"></strong>
-                                        <img id="wrapper-icon-hour5" src="" class="" alt=""/>
-                                        <strong class="d-block" id="wrapper-hour5"></strong>
-                                    </div>
+                            <div class="card-body p-4 border-top border-bottom mb-2">
+                                <div id="hourly-forecast" class="row text-center">
                                 </div>
                             </div>
 
                             <!-- Daily forecast -->
                             <div class="card-body px-5">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <strong>Today</strong>
-                                    </div>
-                                    <div class="col-lg-2 text-center">
-                                        <img id="wrapper-icon-today" src="" class="w-100" alt=""/>
-                                    </div>
-                                    <div class="col-lg-4 text-end">
-                                        <span id="wrapper-forecast-temp-today"></span>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <strong>Tomorrow</strong>
-                                    </div>
-                                    <div class="col-lg-2 text-center">
-                                        <img id="wrapper-icon-tomorrow" src="" class="w-100" alt=""/>
-                                    </div>
-                                    <div class="col-lg-4 text-end">
-                                        <span id="wrapper-forecast-temp-tomorrow"></span>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6">
-                                        <strong>Day after tomorrow</strong>
-                                    </div>
-                                    <div class="col-lg-2 text-center">
-                                        <img id="wrapper-icon-dAT" src="" class="w-100" alt=""/>
-                                    </div>
-                                    <div class="col-lg-4 text-end">
-                                        <span id="wrapper-forecast-temp-dAT"></span>
-                                    </div>
+                                <div id="five-day-forecast">
                                 </div>
                             </div>
                         </div>
@@ -121,9 +61,22 @@
         <!-- Form -->
         <div class="card-header p-4 border-0 text-center">
             <form id="weatherForm" class="form-inline justify-content-center">
-                <label for="zipCode" class="sr-only">Enter Zip Code:</label>
-                <input type="text" id="zipCode" name="zipCode" class="form-control mr-2" placeholder="Enter Zip Code" required>
+                <div class="form-group mx-2">
+                    <label for="city" class="sr-only">Enter City:</label>
+                    <input type="text" id="city" name="city" class="form-control mr-2" placeholder="Enter City">
+                </div>
+                <div class="form-group mx-2">
+                    <label for="state" class="sr-only">Enter State:</label>
+                    <input type="text" id="state" name="state" class="form-control mr-2" placeholder="Enter State">
+                </div>
+                <div class="form-group mx-2">
+                    <label for="zipCode" class="sr-only">Enter Zip Code:</label>
+                    <input type="text" id="zipCode" name="zipCode" class="form-control mr-2" placeholder="Enter Zip Code">
+                </div>
                 <button type="submit" class="btn btn-primary">Get Weather</button>
+                <div>
+                    <button id="locationBtn" class="btn btn-secondary mt-2">Use Current Location</button>
+                </div>
             </form>
         </div>
     </div>

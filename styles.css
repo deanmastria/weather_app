@@ -1,0 +1,174 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b3e8f5;
+    margin: 0;
+    padding: 0;
+}
+
+#weatherForm {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#weatherForm input.form-control {
+    max-width: 150px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive styles */
+
+@media (max-width: 1400px) {
+    .container {
+        width: 285%;
+    }
+
+    .card {
+        margin: 1rem auto;
+    }
+
+    #headerwrapper h1 {
+        font-size: 3rem; 
+    }
+
+    .card-body p {
+        font-size: 3rem; 
+    }
+
+    #currentDate,
+    #wrapper-description,
+    #wrapper-temp-high,
+    #wrapper-temp-low,
+    #wrapper-feels-like,
+    #wrapper-pressure,
+    #wrapper-humidity {
+        font-size: 1.7rem; 
+    }
+
+    #weatherForm input.form-control,
+    #weatherForm button.btn {
+        font-size: 1.2rem; 
+        padding: 0.75rem 1.25rem; 
+    }
+
+    #five-day-forecast img {
+        max-width: 130px; 
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    .card {
+        margin: 1rem auto;
+    }
+
+    #headerwrapper h1 {
+        font-size: 2rem; 
+    }
+
+    .card-body p {
+        font-size: 3rem; 
+    }
+
+    #currentDate,
+    #wrapper-description,
+    #wrapper-temp-high,
+    #wrapper-temp-low,
+    #wrapper-feels-like,
+    #wrapper-pressure,
+    #wrapper-humidity {
+        font-size: 1.7rem; 
+    }
+
+    #weatherForm input.form-control,
+    #weatherForm button.btn {
+        font-size: 1.2rem; 
+        padding: 0.75rem 1rem; 
+    }
+
+    #five-day-forecast img {
+        max-width: 120px; 
+        height: auto;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 2rem 1rem;
+    }
+
+    #headerwrapper h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem 1rem;
+    }
+
+    #headerwrapper h1 {
+        font-size: 1.25rem;
+    }
+
+    .col-3 {
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+
+    .form-control, .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    #five-day-forecast img {
+        max-width: 60px;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1rem 0.5rem;
+    }
+
+    #headerwrapper h1 {
+        font-size: 1.5rem;
+    }
+
+    .col-3 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .form-control, .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    #five-day-forecast img {
+        max-width: 50px;
+        height: auto;
+    }
+}
