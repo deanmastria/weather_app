@@ -113,9 +113,13 @@ function displayWeatherData(currentData, forecastData) {
     if (document.getElementById('currentDate')) document.getElementById('currentDate').innerText = currentDate;
     if (document.getElementById('city')) document.getElementById('city').innerText = city;
     if (document.getElementById('temperature')) document.getElementById('temperature').innerText = temperature + tempUnit;
+    if (document.getElementById('temperature')) document.getElementById('temperature').innerText = temperature + tempUnit;
     if (document.getElementById('conditions')) document.getElementById('conditions').innerText = conditions;
     if (document.getElementById('weather-icon-now')) document.getElementById('weather-icon-now').src = icon;
     if (document.getElementById('weather-icon-conditions')) document.getElementById('weather-icon-conditions').src = icon;
+    if (document.getElementById('wrapper-temp-high')) document.getElementById('wrapper-temp-high').innerText = tempHigh + tempUnit;
+    if (document.getElementById('wrapper-temp-low')) document.getElementById('wrapper-temp-low').innerText = tempLow + tempUnit;
+    if (document.getElementById('wrapper-feels-like')) document.getElementById('wrapper-feels-like').innerText = feelsLike + tempUnit;
     if (document.getElementById('wrapper-temp-high')) document.getElementById('wrapper-temp-high').innerText = tempHigh + tempUnit;
     if (document.getElementById('wrapper-temp-low')) document.getElementById('wrapper-temp-low').innerText = tempLow + tempUnit;
     if (document.getElementById('wrapper-feels-like')) document.getElementById('wrapper-feels-like').innerText = feelsLike + tempUnit;
@@ -128,6 +132,7 @@ function displayWeatherData(currentData, forecastData) {
 
     // Update the HTML elements with the additional weather data
     if (document.getElementById("wrapper-description")) document.getElementById("wrapper-description").innerHTML = description;
+    if (document.getElementById("wrapper-temp")) document.getElementById("wrapper-temp").innerHTML = temp + tempUnit;
     if (document.getElementById("wrapper-temp")) document.getElementById("wrapper-temp").innerHTML = temp + tempUnit;
     if (document.getElementById("wrapper-pressure")) document.getElementById("wrapper-pressure").innerHTML = pressure;
     if (document.getElementById("wrapper-humidity")) document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
@@ -193,29 +198,36 @@ function displayWeatherData(currentData, forecastData) {
         case "Snow":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
             break;
         case "Clouds":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
             break;
         case "Fog":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
             break;
         case "Rain":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
             break;
         case "Clear":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
         case "Thunderstorm":
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
             break;
         default:
             document.getElementById("wrapper-bg").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+            document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             document.getElementById("headerwrapper").style.backgroundImage = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
     }
@@ -226,32 +238,48 @@ function displayWeatherData(currentData, forecastData) {
         case "Snow":
             backgroundColor = "#ffffff";
             document.body.style.backgroundImage = "linear-gradient(135deg, #ffffff 0%, #a1c4fd 100%)";
+            backgroundColor = "#ffffff";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #ffffff 0%, #a1c4fd 100%)";
             break;
         case "Clouds":
+            backgroundColor = "#808080";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #808080 0%, #d3d3d3 100%)";
             backgroundColor = "#808080";
             document.body.style.backgroundImage = "linear-gradient(135deg, #808080 0%, #d3d3d3 100%)";
             break;
         case "Fog":
             backgroundColor = "#D3D3D3";
             document.body.style.backgroundImage = "linear-gradient(135deg, #D3D3D3 0%, #ffffff 100%)";
+            backgroundColor = "#D3D3D3";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #D3D3D3 0%, #ffffff 100%)";
             break;
         case "Rain":
+            backgroundColor = "#0000ff";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #0000ff 0%, #87cefa 100%)";
             backgroundColor = "#0000ff";
             document.body.style.backgroundImage = "linear-gradient(135deg, #0000ff 0%, #87cefa 100%)";
             break;
         case "Clear":
             backgroundColor = "#87ceeb";
             document.body.style.backgroundImage = "linear-gradient(135deg, #87ceeb 0%, #ffffff 100%)";
+            backgroundColor = "#87ceeb";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #87ceeb 0%, #ffffff 100%)";
             break;
         case "Thunderstorm":
+            backgroundColor = "#1b03a3";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #1b03a3 0%, #654ea3 100%)";
             backgroundColor = "#1b03a3";
             document.body.style.backgroundImage = "linear-gradient(135deg, #1b03a3 0%, #654ea3 100%)";
             break;
         default:
             backgroundColor = "#58c0eb";
             document.body.style.backgroundImage = "linear-gradient(135deg, #58c0eb 0%, #ffffff 100%)";
+            backgroundColor = "#58c0eb";
+            document.body.style.backgroundImage = "linear-gradient(135deg, #58c0eb 0%, #ffffff 100%)";
             break;
     }
+
+    document.body.style.backgroundColor = backgroundColor;
 
     document.body.style.backgroundColor = backgroundColor;                                                          // Set the background color of the body
 

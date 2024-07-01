@@ -12,12 +12,16 @@
         <div id="headerwrapper" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
             <h1>Weather App</h1>
         </div>
+        <div id="headerwrapper" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
+            <h1>Weather App</h1>
+        </div>
     </header>
     <div class="container mt-4">
         <section id="weatherData" class="mt-4">
             <div class="container py-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-md-9 col-lg-7 col-xl-5">
+                        <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
                         <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong" style="background-image: url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')">
                             <!-- Main current data -->
                             <div class="card-body p-4">
@@ -27,15 +31,24 @@
                                     <p class="mb-1" id="wrapper-description"></p>
                                     <p class="display-1 mb-1" id="wrapper-temp"></p>
                                     <span>High: <span id="wrapper-temp-high"></span>
+                                    <span>High: <span id="wrapper-temp-high"></span>
                                     <span class="mx-2">|</span>
+                                    <span>Low: <span id="wrapper-temp-low"></span>
                                     <span>Low: <span id="wrapper-temp-low"></span>
                                     <div class="mt-2">
                                         <span>Feels Like: <span id="wrapper-feels-like"></span>
                                         <span class="mx-2">|</span>
                                         <span>Pressure: <span id="wrapper-pressure"></span>
+                                        <span>Feels Like: <span id="wrapper-feels-like"></span>
+                                        <span class="mx-2">|</span>
+                                        <span>Pressure: <span id="wrapper-pressure"></span>
                                         <span class="mx-2">|</span>
                                         <span>Humidity: <span id="wrapper-humidity"></span>
+                                        <span>Humidity: <span id="wrapper-humidity"></span>
                                     </div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button id="unitToggleBtn" class="btn btn-primary">Switch to °C</button>
                                 </div>
                                 <div class="text-center mt-3">
                                     <button id="unitToggleBtn" class="btn btn-primary">Switch to °C</button>
@@ -45,11 +58,14 @@
                             <!-- Hourly forecast -->
                             <div class="card-body p-4 border-top border-bottom mb-2">
                                 <div id="hourly-forecast" class="row text-center">
+                            <div class="card-body p-4 border-top border-bottom mb-2">
+                                <div id="hourly-forecast" class="row text-center">
                                 </div>
                             </div>
 
                             <!-- Daily forecast -->
                             <div class="card-body px-5">
+                                <div id="five-day-forecast">
                                 <div id="five-day-forecast">
                                 </div>
                             </div>
@@ -73,7 +89,22 @@
                     <label for="zipCode" class="sr-only">Enter Zip Code:</label>
                     <input type="text" id="zipCode" name="zipCode" class="form-control mr-2" placeholder="Enter Zip Code">
                 </div>
+                <div class="form-group mx-2">
+                    <label for="city" class="sr-only">Enter City:</label>
+                    <input type="text" id="city" name="city" class="form-control mr-2" placeholder="Enter City">
+                </div>
+                <div class="form-group mx-2">
+                    <label for="state" class="sr-only">Enter State:</label>
+                    <input type="text" id="state" name="state" class="form-control mr-2" placeholder="Enter State">
+                </div>
+                <div class="form-group mx-2">
+                    <label for="zipCode" class="sr-only">Enter Zip Code:</label>
+                    <input type="text" id="zipCode" name="zipCode" class="form-control mr-2" placeholder="Enter Zip Code">
+                </div>
                 <button type="submit" class="btn btn-primary">Get Weather</button>
+                <div>
+                    <button id="locationBtn" class="btn btn-secondary mt-2">Use Current Location</button>
+                </div>
                 <div>
                     <button id="locationBtn" class="btn btn-secondary mt-2">Use Current Location</button>
                 </div>

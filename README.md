@@ -1,20 +1,6 @@
 # weather_app
 
-# Mark1
-# api calls and code correct, bootstrap elements added, buttons works
+# Default Location Not Showing When Page is Opened in GITHUB Pages link, works fine on my browser.
 
-# On deck
-# add additional API calls to display today, tomorrow next day, etc
-# add multiple cards, save previous results
-
-# Mark2
-# Displayed: today, high, low, presuure, humididty, location, date, conditions
-# Form for zip code input
-# Dynamic Header and card background
-
-# On Deck
-# CSS styling fo background, font
-# far/cel buttons
-# tomorrow next day display
-# display current and previous results
-# geolocation for current weather on start up
+# Couldn't get google geolocation API to work well enough in time to include it. 
+# I was able to get it to work but including it was causing me problems elsewhere in my code.
